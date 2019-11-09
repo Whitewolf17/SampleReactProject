@@ -18,3 +18,15 @@ npm install @babel/core --save
 npm install @babel/preset-env --save
 npm install @babel/preset-react --save
 npm install @babel/plugin-proposal-class-properties
+
+
+Git Hub
+
+git init
+git remote add origin https://github.com/Whitewolf17/SampleReactProject.git
+git remote -V
+git pull origin master
+git add -A 
+git commit -m "Initial Commit"
+git push origin master
+
