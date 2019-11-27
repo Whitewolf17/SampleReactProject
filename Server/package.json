@@ -1,0 +1,28 @@
+{
+  "name": "pizzaservice",
+  "version": "1.0.0",
+  "description": "Service for Pizza Modules",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node ./app.js",
+    "build": "babel app.js -d dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Suren",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "@babel/node": "^7.7.0",
+    "nodemon": "^1.19.4"
+  }
+}

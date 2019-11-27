@@ -1,0 +1,20 @@
+#customizeMenu
+{
+    float: right;
+    margin-right: 30%
+}
+#mainMenu
+{
+    width: 20%;
+    float: left;
+}
+#toppingsMenu
+{
+    float: right;
+    margin-right: -40%;
+
+}
+#baseMenu
+{
+    float: left;
+}

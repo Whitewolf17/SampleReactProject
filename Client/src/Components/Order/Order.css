@@ -1,0 +1,44 @@
+#OrderDiv
+{
+    border: black;
+    color: blue;
+    height: 65%;
+    border-style: solid;
+    text-align: left;
+    width: 50%;
+}
+
+#CartDiv
+{
+    border: Red;
+    color: black;
+    height: 67%;
+    border-style: solid;
+    text-align: left;
+    width: 40%;
+    float: right;
+    margin-top: -32%;
+    margin-right: 5%;
+}
+
+#quantityInc
+{
+    margin-left: 20px;
+    width: 30px;
+}
+
+#quantityDec
+{
+    margin-left: 20px;
+    width: 30px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    font-size: 20px;
+    border-collapse: collapse;    
+  }
+#cartTable{
+    margin-left: 20%;
+    margin-top: 10%;
+}

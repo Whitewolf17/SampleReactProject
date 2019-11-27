@@ -1,0 +1,10 @@
+Best Practices
+
+https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html#recommendation-fully-controlled-component
+  
+React Async and Concurrency in detail:
+
+https://medium.com/@agm1984/reacts-setstate-is-a-special-function-and-it-helps-with-asynchronous-concurrency-669eddbe3dd1
+
+How to update Objects in setstate
+https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react

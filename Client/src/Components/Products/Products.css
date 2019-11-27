@@ -1,0 +1,56 @@
+#mainDiv
+{
+    border: black;
+    border-style: solid;
+    width: 70%;
+    text-align: center;
+    margin-left: 200;
+    height: 70%;
+}
+#productModification
+{
+    border: blue;
+    border-style: solid;
+    width: 48%;
+    float: right;
+    height: 70%;
+    margin-top: 4%;
+    margin-right: 2%;
+}
+#productContent
+{
+    width: 40%;
+    border: red;
+    border-style: solid;
+    margin-top: 4%;
+    margin-left: 4%;
+    height: 70%;
+    float: left;
+}
+#productList
+{
+    margin: 5%;
+}
+
+#baseContent
+{
+    border: black;
+    border-style: solid;
+    width: 50%;
+    text-align: center;
+    margin-left: 25%;
+    margin-top: 3%;
+    height: 70%;
+}
+#baseDataTable
+{
+    margin-left: 20%;
+}
+
+#baseBtnFooter
+{
+    margin-top: 15%;
+    margin-left: 2%;
+    /* border: solid; */
+    width: 70%;
+}

@@ -18,7 +18,7 @@ npm install @babel/core --save
 npm install @babel/preset-env --save
 npm install @babel/preset-react --save
 npm install @babel/plugin-proposal-class-properties
-
+npm install @material-ui/core@4.6.1
 
 Git Hub
 
