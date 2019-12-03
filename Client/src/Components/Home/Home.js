@@ -1,37 +1,47 @@
 import React from 'react';
-import UserLogin from '../Login/UserLogin'
-import {UserContextProvider} from '../Login/UserContext'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Order from '../Order/Order';
+import Products from '../Products/Products';
+import User from '../Users/Users';
+import Menu from '../Menu/MenuView'
+import UserContextConsumer from '../Login/UserContext'
+import { useHistory } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
+import UserLogin from '../Login/UserLogin';
 
-class Home extends React.Component
-{
-    constructor(props)
-    {
-        super(props);
-        this.state={userName:"", password:"", isLoggedIn:false};
-    }
-
-    handleChange = (event)=>{
-        let name = event.target.name;
-        let value = event.target.value;
-        this.setState({[name]:value})
-    }
-
-    onLogin = ()=>{
-        this.setState({isLoggedIn:true});
-        
-    }
+const Home = (props)=>{
+    //let userName = "guest";
     
-    render()
-    {
-        return(
-            <div>
-                <h2>This is a Sample website developed in React to handle Pizza Ordering</h2>
-                {(!this.state.isLoggedIn)&&<UserLogin onChange = {this.handleChange} value={this.state} onLogin = {this.onLogin} />}
-
-            </div>
-        )
-    }
-   
+      let userName = <UserContextConsumer>{(value)=>value}</UserContextConsumer>
+      let history = useHistory();
+      let onLogout = ()=>{       
+        history.push("/");
+      props.inValidateUser();
+      }
+    
+    return(
+        <Router>
+        <div>          
+          <h2>Welcome to my Pizza Website - {userName} <button onClick={onLogout}> Log Out </button> </h2>
+          <nav>
+          <ul>
+            <li><Link to={'/users'}> Users </Link></li>
+            <li><Link to={'/order'} className="nav-link">Orders</Link></li>
+            <li><Link to={'/menu'} className="nav-link">Menu</Link></li>
+            <li><Link to={'/products'} className="nav-link">Products Maintenance</Link></li>
+          </ul>
+          </nav>
+          <hr />
+          <Switch>
+            <Route exact path='/' component={UserLogin} />
+            <Route path='/users' component={User} />
+            <Route path='/order' component={Order} />
+            <Route path='/menu' component={Menu} />
+            <Route path='/products' component={Products} />
+          </Switch>
+        </div>
+      </Router>
+    )
 }
 
-export default Home
+export default withRouter(Home)
