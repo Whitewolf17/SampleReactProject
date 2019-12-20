@@ -9,8 +9,8 @@
 }
 #productModification
 {
-    border: blue;
-    border-style: solid;
+    /* border: blue;
+    border-style: solid; */
     width: 48%;
     float: right;
     height: 70%;
@@ -20,22 +20,26 @@
 #productContent
 {
     width: 40%;
-    border: red;
-    border-style: solid;
+    /* border: red;
+    border-style: solid; */
     margin-top: 4%;
     margin-left: 4%;
     height: 70%;
     float: left;
 }
-#productList
+#productFooter
+{
+    margin-top: 2%
+}
+/* #productList
 {
     margin: 5%;
-}
+} */
 
 #baseContent
 {
-    border: black;
-    border-style: solid;
+    /* border: black;
+    border-style: solid; */
     width: 50%;
     text-align: center;
     margin-left: 25%;
@@ -44,13 +48,23 @@
 }
 #baseDataTable
 {
-    margin-left: 20%;
+    margin-left: 10%;
+    width: 75%;
+    /* border: solid; */
+    margin-top: 5%;
 }
 
 #baseBtnFooter
 {
-    margin-top: 15%;
-    margin-left: 2%;
+    margin-top: 10%;
+    margin-left: 15%;
     /* border: solid; */
     width: 70%;
+}
+#toppingTable
+{
+    width: 37%;
+    /* border: solid; */
+    margin-left: 30%;
+    margin-top: 2%;
 }

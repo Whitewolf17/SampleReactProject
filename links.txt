@@ -7,4 +7,15 @@ React Async and Concurrency in detail:
 https://medium.com/@agm1984/reacts-setstate-is-a-special-function-and-it-helps-with-asynchronous-concurrency-669eddbe3dd1
 
 How to update Objects in setstate
-https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-react
+https://stackoverflow.com/questions/43638938/updating-an-object-with-setstate-in-
+
+Componentdidmount vs componentwillmount (where to hit service calls)
+
+https://hackernoon.com/where-to-integrate-api-calls-in-reactjs-componentwillmount-vs-componentdidmount-710085dc05c3
+https://dzone.com/articles/consuming-rest-api-with-reactjs
+https://daveceddia.com/where-fetch-data-componentwillmount-vs-componentdidmount/
+https://medium.com/coffee-and-codes/componentdidmount-v-s-componnetwillmount-react-47f4f631276c
+https://stackoverflow.com/questions/29899116/what-is-the-difference-between-componentwillmount-and-componentdidmount-in-react
+https://reactjs.org/docs/faq-ajax.html
+https://stackoverflow.com/questions/50976316/loading-configurational-data-during-page-load-in-react-app
+https://www.carlrippon.com/react-drop-down-data-binding/

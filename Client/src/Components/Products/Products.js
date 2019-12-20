@@ -9,9 +9,11 @@ class Products extends React.Component
     constructor(props)
     {
         super(props)
-        this.products = ProductUtil.getProducts
-        this.bases = ProductUtil.getBase
-        this.toppings = ProductUtil.getToppings
+       
+        this.products = [];
+        this.bases = [];
+        this.toppings = [];
+      
         this.product = {id:"" ,name : "", price :""}
         this.base = {id:"" ,name : "", price :""}
         this.selectedBase = {id:"" ,name : "", price :""}
@@ -30,6 +32,23 @@ class Products extends React.Component
             selectedBase: {id:"" ,name : "", price :""},
         }
     }
+    componentDidMount()
+    {
+        console.log("Component did mount")
+        let promise = ProductUtil.initalizeProducts();
+        promise
+        .then((resp) =>resp.json()) 
+        .then((result)=>{
+            console.log(result);
+            ProductUtil.isProductsLoaded=true;
+            ProductUtil.setProducts(result);
+            this.products = ProductUtil.getProducts;
+            this.bases = ProductUtil.getBase;
+            this.toppings = ProductUtil.getToppings;
+            this.setState({products:this.products, bases:this.bases, toppings:this.toppings});
+        })
+       
+    }
     showMaintenanceActions = ()=>{
         this.setState({showActions:true})
     }
@@ -41,9 +60,12 @@ class Products extends React.Component
         }
       
     }
-
     showBases = ()=>{
         this.setState({showProducts:false,showBases:true, showToppings:false})
+    }
+
+    showToppings = ()=>{
+        this.setState({showProducts:false,showBases:false, showToppings:true})
     }
     addBase = ()=>{      
         console.log("On Add Base") 
@@ -193,6 +215,7 @@ class Products extends React.Component
              saveBase = {this.saveBase}
              addBase = {this.addBase}
              modifyBase = {this.modifyBase}
+             showToppings = {this.showToppings}
              value = {this.state} />
         )
     }

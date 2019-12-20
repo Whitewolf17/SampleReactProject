@@ -10,14 +10,14 @@ let CustomizeMenu = (props)=>{
         <h4>Select Base:
             <select name="baseSelected" onChange = {props.onChange} defaultValue = "0"> 
             <option value="0"> Select </option> 
-            {props.pizzaBases.map((item)=> (<option key={item.id} value={item.id}>{item.name}</option>))}
+            {props.value.pizzaBases.map((item)=> (<option key={item.id} value={item.id}>{item.name}</option>))}
              </select>
         </h4>
 
         <h4>Select Toppings:
             <select name="toppingSelected" onChange = {props.onChange} defaultValue = "0">       
             <option value="0"> Select </option>     
-            {props.pizzaToppings.map((item)=> (<option key={item.id} value={item.id}>{item.name}</option>))}
+            {props.value.pizzaToppings.map((item)=> (<option key={item.id} value={item.id}>{item.name}</option>))}
             </select>
             <button onClick = {props.addTopping}>Add</button>
         </h4>
@@ -32,7 +32,7 @@ let NormalMenu = (props)=>{
         <h4>Select Pizza:
             <select onChange = {props.onChange} defaultValue = "0" name="itemSelected"> 
             <option value="0"> Select </option> 
-            {props.pizzaMenus.map((item)=> (<option key={item.id} value={item.id}>{item.name}</option>))}
+            {props.value.pizzaMenus.map((item)=> (<option key={item.id} value={item.id}>{item.name}</option>))}
         </select>
         </h4>
     )

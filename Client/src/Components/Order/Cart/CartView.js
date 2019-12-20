@@ -1,6 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+import  Button from '@material-ui/core/Button';
 
+const styles = {
+    root: {
+        width: '500px',
+        overflowX: 'auto',
+        overflowY: 'auto',
+        margin: "10px",
+        padding: "10px"
+      },
+      table: {
+        maxWidth:450,
+        
+      },
+}
 
 class CartView extends React.Component
 {
@@ -8,42 +28,44 @@ class CartView extends React.Component
     {
       super(props);        
     }
-
+   
     render()
     {
         //console.log(this.state.item);
+        const { classes } = this.props;
         let items = this.props.items;
         return (
             <div id = "CartDiv">
-                <table id="cartTable">
-                    <thead>
-                        <tr>
-                            <td>Type </td> 
-                            <td>Item Name </td>
-                            <td> Quantity </td>
-                            <td> Cost </td>
-                            <td> Option </td>
-                        </tr>
-                    </thead>
+                 <Paper className={classes.root}>
+                <Table id="cartTable" size="small" className= {classes.table}>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Type </TableCell> 
+                            <TableCell>Item Name </TableCell>
+                            <TableCell> Quantity </TableCell>
+                            <TableCell> Cost </TableCell>
+                            <TableCell> Option </TableCell>
+                        </TableRow>
+                    </TableHead>
                   {items.map((item)=>(
-                      <tbody>
-                        <tr>
-                        <td>{item.itemType}</td>
-                        <td>{item.itemDescription}</td>
-                        <td>{item.quantity}</td>
-                        <td>${item.cost}</td>
-                        <td><button onClick={this.props.removeCartItem} value={item.itemId}>Remove</button></td>                      
-                        </tr>
-                      </tbody>
+                      <TableBody>
+                        <TableRow>
+                        <TableCell>{item.itemType}</TableCell>
+                        <TableCell>{item.itemDescription}</TableCell>
+                        <TableCell>{item.quantity}</TableCell>
+                        <TableCell>${item.cost}</TableCell>
+                        <TableCell><Button variant="outlined" color="primary" onClick={this.props.removeCartItem} value={item.itemId}>Remove</Button></TableCell>                      
+                        </TableRow>
+                      </TableBody>
                   ))}
                     
-                </table>
+                </Table>
             <h3>Cart Total = ${this.props.cartTotal}</h3>
-            <button onClick = {this.props.placeOrder}> Place Order </button>
+             </Paper>
+            <Button variant="outlined" color="primary" onClick = {this.props.placeOrder}> Place Order </Button>
             </div>
         )
     }
 }
 
-
-export default CartView;
+export default withStyles(styles)(CartView);

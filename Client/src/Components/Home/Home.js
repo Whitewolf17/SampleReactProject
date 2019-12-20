@@ -8,6 +8,9 @@ import UserContextConsumer from '../Login/UserContext'
 import { useHistory } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
 import UserLogin from '../Login/UserLogin';
+import Button from '@material-ui/core/Button';
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+
 
 const Home = (props)=>{
     //let userName = "guest";
@@ -20,18 +23,27 @@ const Home = (props)=>{
       }
     
     return(
-        <Router>
+        <Router basename="PizzaHut">
         <div>          
-          <h2>Welcome to my Pizza Website - {userName} <button onClick={onLogout}> Log Out </button> </h2>
-          <nav>
+          <h2>Welcome to my Pizza Website - {userName} 
+                  <Button variant="contained" color="primary" onClick={onLogout}>
+                     Logout
+                  </Button> </h2>
+          {/* <nav>
           <ul>
             <li><Link to={'/users'}> Users </Link></li>
             <li><Link to={'/order'} className="nav-link">Orders</Link></li>
             <li><Link to={'/menu'} className="nav-link">Menu</Link></li>
             <li><Link to={'/products'} className="nav-link">Products Maintenance</Link></li>
           </ul>
-          </nav>
-          <hr />
+          </nav> */}
+          <Breadcrumbs aria-label="breadcrumb">
+              <Link to={'/users'}> Users </Link>
+              <Link to={'/order'} >Orders</Link>
+              <Link to={'/menu'}>Menu</Link>
+              <Link to={'/products'}>Products Maintenance</Link>
+          </Breadcrumbs>
+          
           <Switch>
             <Route exact path='/' component={UserLogin} />
             <Route path='/users' component={User} />

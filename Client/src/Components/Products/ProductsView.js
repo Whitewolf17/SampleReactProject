@@ -5,7 +5,13 @@ import {BasePopup} from './BasePopup.js'
 import  Button from '@material-ui/core/Button';
 import './Products.css'
 
-
+let Toppings = (props)=>{
+    return(
+        <div id="toppingTable">
+            <ProductTable collection ={props.value.toppings} onSelect = {props.onSelectBase} />
+        </div>
+    )
+}
 let Bases = (props)=>{
    // console.log(props)
 return(
@@ -29,7 +35,10 @@ let ShowProductModification = (props)=>{
         <div>
             <h3> <label> Product Name </label> <input type = "text" name="productName" onChange = {props.onProductNameChange} value= {props.value.product.name}/> </h3>
             <h3> <label> Product Cost </label> <input type = "text" name="productCost" onChange = {props.onProductCostChange} value= {props.value.product.price}/> </h3>
-            <h3> <button onClick = {props.saveProduct}> {props.value.action == "add"?"Add Product" : "Modify Product"}</button> </h3>
+            <Button variant="outlined" onClick={props.saveProduct} color="primary">
+                {props.value.action == "add"?"Add Product" : "Modify Product"}
+            </Button>
+            {/* <h3> <button onClick = {props.saveProduct}> {props.value.action == "add"?"Add Product" : "Modify Product"}</button> </h3> */}
         </div>
     )
 }
@@ -40,8 +49,15 @@ let Products = (props)=>{
         <div>
             <div id="productContent">
                 <ProductTable collection ={products} onSelect = {props.onSelectProduct} />
-                <button onClick={props.addProduct}> Add New Product </button>
-                <button onClick= {props.modifyProduct}>Modify Product </button>
+                <div id="productFooter">
+                    <Button variant="outlined" onClick={props.addProduct} color="primary">
+                         Add New Product
+                    </Button>
+                    <Button variant="outlined" onClick={props.modifyProduct} color="primary">
+                         Modify Product
+                    </Button>
+                  
+                </div>
             </div>
             <div id ="productModification">
                 {
@@ -82,6 +98,10 @@ class ProductMaintenance extends React.Component
                                                      saveBase = {this.props.saveBase}
                                                      addBase = {this.props.addBase}
                                                      modifyBase = {this.props.modifyBase} />
+            }
+
+            {
+                (this.props.value.showToppings)&& <Toppings value = {this.props.value} />
             }
         </div>
         )

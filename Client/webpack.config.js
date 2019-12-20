@@ -19,8 +19,11 @@ module.exports = {
     host: '0.0.0.0',
     publicPath: 'http://localhost:8080',
     proxy: {
-      "/api": "http://localhost:3000",
-      pathRewrite: { '^/api': '' },
+        '/api/**':{
+          target:"http://localhost:9090",
+          secure:false
+        },
+    //  pathRewrite: { '^/api': '' },
     },
     headers: {
       'Access-Control-Allow-Origin': '*'

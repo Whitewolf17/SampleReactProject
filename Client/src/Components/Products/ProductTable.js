@@ -1,31 +1,50 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { withStyles } from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
+const styles = {
+    root: {
+        width: '350px',
+        overflowX: 'auto',
+        overflowY: 'scroll',
+      },
+      table: {
+        maxWidth: 350,
+      },
+}
 /*React Concept - Used Composition */
 let ProductTable = (props)=>{
     let data = props.collection;
+    const { classes } = props;
     return(
         <div>
-            <table id="productList">
-                    <thead>
-                        <tr>
-                            <th> Modify </th>
-                            <th> Name </th>
-                            <th> Cost </th>
-                        </tr>
-                    </thead>
-                    <tbody>
+             <Paper className={classes.root}>
+            <Table id="productList" size="small" className= {classes.table}>           
+                    <TableHead>
+                        <TableRow>
+                            <TableCell> Modify </TableCell>
+                            <TableCell> Name &nbsp; </TableCell>
+                            <TableCell> Cost </TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
                     {data.map((item) => (
-                            <tr>
-                                <td> <input type="radio" name="modifyProduct" value={item.id} onChange = {props.onSelect} /> </td>
-                                <td> {item.name} </td>
-                                <td> ${item.price} </td>
-                            </tr>
+                            <TableRow>
+                                <TableCell size="small"> <input type="radio" name="modifyProduct" value={item.id} onChange = {props.onSelect} /> </TableCell>
+                                <TableCell size="small"> {item.name} </TableCell>
+                                <TableCell size="small"> ${item.price} </TableCell>
+                            </TableRow>
                                 ))}
 
-                    </tbody>
-            </table>
+                    </TableBody>
+            </Table>
+            </Paper>
         </div>
     )
 }
-
-export default ProductTable;
+export default withStyles(styles)(ProductTable);
+//export default ProductTable;

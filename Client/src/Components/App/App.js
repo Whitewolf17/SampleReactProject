@@ -2,6 +2,7 @@ import React from 'react';
 import UserLogin from '../Login/UserLogin'
 import { BrowserRouter as Router, Switch, Route, Link, Redirect } from 'react-router-dom';
 import {UserContextProvider} from '../Login/UserContext'
+
 import Home from '../Home/Home'
 
 export class App extends React.Component
@@ -9,7 +10,7 @@ export class App extends React.Component
   constructor(props)
   {
       super(props);
-      this.state={userName:"", password:"", isLoggedIn:false};
+      this.state={userName:"", password:"", storeNo:"",isLoggedIn:false};
   }
 
   handleChange = (event)=>{
@@ -37,7 +38,7 @@ export class App extends React.Component
       return(
         
           <div>
-            <Router>
+            <Router basename="PizzaHut">
               <Switch>
                 <Route path='/home' >
                 <UserContextProvider value={this.state.userName}>

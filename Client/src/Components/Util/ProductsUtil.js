@@ -1,23 +1,21 @@
 //const fetch = require("node-fetch");
-var data = require('../Data/Products.json');
-
-
-    
-    // initializeProducts = ()=>{
-    //     let promise = fetch("../Data/Products");
-    //     promise.then((resp) =>{
-    //         resp.json();
-    //     })
-    //     .then((data)=>{
-    //         console.log(data);
-    //         this.products = data;
-    //     })
-
-    // }
-
-
+//var data = require('../Data/Products.json');
+var data = null;
+let isProductsLoaded = false;
 export let ProductUtil = {
+    set isProductsLoaded(value)
+    {
+        isProductsLoaded = true;
+    },
+    get isProductsLoaded(){
+        return isProductsLoaded;
+    },
+    setProducts(result)
+    {
+        data = result;
+    },
     get getProducts(){
+        console.log(data.menu);        
         return data.menu;
     },
     get getToppings(){
@@ -41,4 +39,15 @@ export let ProductUtil = {
         let bases= data.base.filter((item)=> item.id==id);     
         return bases[0];
     },
+    initalizeProducts()
+    {
+        let promise = fetch("http://localhost:9090/Products/getProducts",
+                            {
+                                method:"GET",
+                                headers: {
+                                    'Content-Type': 'application/json'
+                                },
+                            });
+       return promise
+    }
 };
