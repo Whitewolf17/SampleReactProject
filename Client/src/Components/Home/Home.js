@@ -4,6 +4,7 @@ import Order from '../Order/Order';
 import Products from '../Products/Products';
 import User from '../Users/Users';
 import Menu from '../Menu/MenuView'
+import Inventory from '../Inventory/Inventory'
 import UserContextConsumer from '../Login/UserContext'
 import { useHistory } from "react-router-dom";
 import { withRouter } from 'react-router-dom';
@@ -15,7 +16,9 @@ import Breadcrumbs from '@material-ui/core/Breadcrumbs';
 const Home = (props)=>{
     //let userName = "guest";
     
-      let userName = <UserContextConsumer>{(value)=>value}</UserContextConsumer>
+      let userName = <UserContextConsumer>{(value)=>value.userName}</UserContextConsumer>
+      let role = <UserContextConsumer>{(value)=>value.role}</UserContextConsumer>
+      console.log(role)
       let history = useHistory();
       let onLogout = ()=>{       
         history.push("/");
@@ -25,7 +28,7 @@ const Home = (props)=>{
     return(
         <Router basename="PizzaHut">
         <div>          
-          <h2>Welcome to my Pizza Website - {userName} 
+          <h2>Welcome to my Pizza Website - {role} 
                   <Button variant="contained" color="primary" onClick={onLogout}>
                      Logout
                   </Button> </h2>
@@ -42,6 +45,7 @@ const Home = (props)=>{
               <Link to={'/order'} >Orders</Link>
               <Link to={'/menu'}>Menu</Link>
               <Link to={'/products'}>Products Maintenance</Link>
+              <Link to={'/inventory'}>Inventory</Link>
           </Breadcrumbs>
           
           <Switch>
@@ -50,6 +54,7 @@ const Home = (props)=>{
             <Route path='/order' component={Order} />
             <Route path='/menu' component={Menu} />
             <Route path='/products' component={Products} />
+            <Route path='/inventory' component={Inventory} />
           </Switch>
         </div>
       </Router>

@@ -1,19 +1,13 @@
 #OrderDiv
 {
-    border: black;
-    color: blue;
     height: 65%;
-    border-style: solid;
     text-align: left;
     width: 50%;
 }
 
 #CartDiv
 {
-    border: Red;
-    color: black;
     height: 67%;
-    border-style: solid;
     text-align: left;
     width: 40%;
     float: right;
@@ -24,13 +18,13 @@
 #quantityInc
 {
     margin-left: 20px;
-    width: 30px;
+    /* width: 30px; */
 }
 
 #quantityDec
 {
     margin-left: 20px;
-    width: 30px;
+    /* width: 30px; */
 }
 /* 
 table, th, td {

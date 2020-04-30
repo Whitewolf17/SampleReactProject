@@ -21,6 +21,7 @@
     "node-fetch": "^2.6.0",
     "react": "^16.11.0",
     "react-bootstrap": "^1.0.0-beta.16",
+    "react-data-grid": "^6.1.0",
     "react-dom": "^16.11.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",

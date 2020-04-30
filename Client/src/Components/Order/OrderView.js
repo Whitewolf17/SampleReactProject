@@ -1,7 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { withStyles } from '@material-ui/core/styles';
 import  './Order.css';
 import CartView from './Cart/CartView'
+import  Button from '@material-ui/core/Button';
+
+
+const styles = {
+    root: {
+        minWidth: '50px', 
+        height:"35px",     
+      },
+     
+}
 
 let CustomizeMenu = (props)=>{
    
@@ -69,16 +79,16 @@ class OrderView extends React.Component
              
                 <h4> Quantity:
                     <label name="quantity">{this.props.value.quantity}</label>
-                    <button id = "quantityInc" value = "Add" onClick={this.props.handleQuantity}>+</button>
-                    <button id = "quantityDec" value = "Sub" onClick={this.props.handleQuantity}>-</button>
+                    <Button className = {this.props.classes.root} variant="outlined" color="primary" id = "quantityInc" value = "Add" onClick={this.props.handleQuantity}>+</Button>
+                    <Button size="small" className = {this.props.classes.root}  variant="outlined" color="primary" id = "quantityDec" value = "Sub" onClick={this.props.handleQuantity}>-</Button>
                 </h4>
 
                 <h4> Comments: 
                     <input type="text" name="comments" onChange = {this.props.onChange}  value = {this.props.value.comments}/>
                 </h4>
 
-                <button onClick={this.props.addToCart}> Add to cart</button>
-                <button onClick={this.props.resetOrder}> New Order</button>
+                <Button variant="outlined" color="primary" onClick={this.props.addToCart}> Add to cart</Button>
+                <Button variant="outlined" color="primary" onClick={this.props.resetOrder}> New Order</Button>
 
             </div>
                 {
@@ -93,4 +103,5 @@ class OrderView extends React.Component
     }
 }
 
-export default OrderView;
+export default withStyles(styles)(OrderView);
+//export default OrderView;
